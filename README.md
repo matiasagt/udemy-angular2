@@ -1,4 +1,3 @@
-# udemy-angular2
+#Angular 2
 
-Aplicaciónes y examenes realizados durante el curso de Angular 2 de Udemy
-https://www.udemy.com/angular-2-fernando-herrera
+Ejercicios y examenes realizados durante el curso de [Angular 2](https://www.udemy.com/angular-2-fernando-herrera) de Udemy.

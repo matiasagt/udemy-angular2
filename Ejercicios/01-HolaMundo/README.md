@@ -1,32 +1,19 @@
-# udacity-angular2
-Aplicaciónes y examenes realizados durante el curso de Angular 2 de Udacity - https://www.udemy.com/angular-2-fernando-herrera
-
 # Holamundo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve -o` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Temas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-=======
+1. ¿Qué son los componentes?
+2. ¿Qué son las directivas estructurales?
+3. Uso de plunker para nuestra primera interacción con Angular.
+4. Trabajando de forma local un proyecto en Angular.
+5. Una breve introducción sobre todos los archivos usados en el QuickStart de Angular.
+6. Uso de Bootstrap 4 para nuestros estilos.
+7. Crear archivos .HTML para que se encarguen de la estructura visual de nuestros componentes.
+8. Crearemos una aplicación con 3 componentes re-utilizables.
+9. *ngFor y el *ngIf
