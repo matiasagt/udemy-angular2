@@ -1,0 +1,61 @@
+<div class="container main-container animated fadeIn fast" *ngIf="artist">
+  <div class="row">
+    <div class="col-md-3 text-center">
+      <img [src]="artist.images | withoutphoto" class="img-thumbnail img-circle" [alt]="artist.name" width="200" height="200">
+    </div>
+    <div class="col-md-9">
+      <h3 class="text-center">{{ artist.name }} <small>Popularidad {{ artist.popularity }}</small></h3>
+      <hr>
+      <a [href]="artist.external_urls?.spotify" class="btn btn-outline-success">Ver en Spotify</a>
+      <a [routerLink]="['/search']" class="btn btn-outline-danger">Volver</a>
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="tracks">
+  <h3 class="text-left">Top Tracks</h3>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+      <table class="table table-inverse table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Foto</th>
+              <th>Cancion</th>
+              <th>Popularidad</th>
+              <th>Preview</th>
+              <th>Spotify</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let track of tracks; let i = index;">
+              <td>
+                {{ i + 1 }}
+              </td>
+              <td>
+                <img [src]="track.album?.images | withoutphoto" class="img-fluid img-50" [alt]="track.name">
+              </td>
+              <td>
+                <h4 class="text-center">{{track.name}}</h4>
+              </td>
+              <td>
+                <h4 class="text-center">{{track.popularity}}%</h4>
+              </td>
+              <td>
+                <!-- <audio controls>
+                  <source [src]="track.preview_url">
+                  Tu navegador es muy viejo!
+                </audio> -->
+                <iframe [src]="track.uri | domseguro:'https://open.spotify.com/embed?uri='" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+              </td>
+              <td>
+                <h4 class="text-center">{{track.name}}</h4>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
