@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "heroesapp"
+    "name": "peliculas-app"
   },
   "apps": [
     {
@@ -19,14 +19,9 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
-        "assets/b4/css/bootstrap.min.css"
+        "styles.css"
       ],
-      "scripts": [
-        "assets/jquery/jquery.slim.min.js",
-        "assets/tether/tether.min.js",
-        "assets/b4/js/bootstrap.min.js"
-      ],
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

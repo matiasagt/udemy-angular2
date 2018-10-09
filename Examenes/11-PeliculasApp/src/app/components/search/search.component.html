@@ -1,0 +1,18 @@
+<div class="container top-30">
+  <div class="row">
+    <div class="col-md-3">
+      <label for="termino">Buscar pelicula</label>
+      <input [(ngModel)]="termino" class="form-control" type="text" name="termino" value="" placeholder="Buscar por nombre..." (keyup)="buscarPelicula()">
+      <hr>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-3 text-center puntero" [routerLink]="['/movie',movie.id]" *ngFor="let movie of films?.results">
+          <img [src]="'https://image.tmdb.org/t/p/original/' + movie.poster_path" class="img-fluid img-thumbnail" onError="this.src='assets/img/noimage.png';">
+          <p>{{ movie.name }}</p>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

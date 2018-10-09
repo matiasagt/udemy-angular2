@@ -1,0 +1,29 @@
+<div class="container top-30">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="btn-group" role="group">
+        <div class="btn-group" role="group">
+          <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle puntero" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Géneros
+          </button>
+          <div class="dropdown-menu puntero" aria-labelledby="btnGroupDrop1">
+            <a class="dropdown-item" (click)="mostrarEstrenos()">Estrenos</a>
+            <a class="dropdown-item" (click)="mostrarPopulares()">Populares</a>
+            <a class="dropdown-item" (click)="mostrarInfantiles()">Infantiles</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <h3>{{ genere | titlecase }}</h3>
+      <div class="row">
+        <div class="col-md-3 text-center puntero" [routerLink]="['/movie',pelicula.id]" *ngFor="let pelicula of films?.results">
+          <img [src]="'https://image.tmdb.org/t/p/original/' + pelicula.poster_path" class="img-fluid img-thumbnail" onError="this.src='assets/img/noimage.png';">
+          <p>{{ pelicula.title }}</p>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

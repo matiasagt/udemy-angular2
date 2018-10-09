@@ -1,0 +1,42 @@
+<div class="container main-container animated fadeIn fast" *ngIf="movie">
+  <div class="row">
+    <div class="col-md-3 text-center">
+      <img [src]="'https://image.tmdb.org/t/p/original/' + movie.poster_path" class="img-thumbnail img-circle" [alt]="movie.title"
+        width="200" height="200">
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-2">
+          <a (click)="_location.back()" class="btn btn-outline-danger">Volver</a>
+        </div>
+        <div class="col-md-10">
+          <h3 class="text-center">{{ movie.title }}</h3>
+        </div>
+      </div>
+      <hr>
+      <!-- <a [href]="movie.external_urls?.spotify" class="btn btn-outline-success">Ver en Spotify</a> -->
+      <div class="container">
+        <h3 class="text-left">Argumento</h3>
+        <hr>
+        <div class="row">
+          <div class="col-md-12">
+            <p>{{movie?.overview}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h3>Elenco</h3>
+            <div class="row">
+              <div class="col-md-3 text-center puntero" *ngFor="let actor of movie?.cast">
+                <img [src]="'https://image.tmdb.org/t/p/original/' + actor.profile_path" class="img-fluid img-thumbnail" onError="this.src='assets/img/noimage.png';">
+                <p>Nombre: {{ actor.name }}</p>
+                <p>Personaje: {{ actor.character }}</p>
+                <hr>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
