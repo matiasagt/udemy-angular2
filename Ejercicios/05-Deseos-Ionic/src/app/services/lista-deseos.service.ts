@@ -26,6 +26,13 @@ export class ListaDeseosService {
     this.actualizarData();
   }
 
+  borrarLista( lista:Lista ){
+    this.listas = this.listas.filter( listaData => {
+      return listaData.nombre !== lista.nombre
+    })
+    this.actualizarData();
+  }
+
   eliminarLista( idx: number ){
     this.listas.splice( idx, 1 );
     this.actualizarData();

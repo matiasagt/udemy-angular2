@@ -19,6 +19,7 @@ import { PendientesComponent } from '../pages/pendientes/pendientes.component';
 import { TerminadosComponent } from '../pages/terminados/terminados.component';
 import { AgregarComponent } from '../pages/agregar/agregar.component';
 import { DetalleComponent } from '../pages/detalle/detalle.component';
+import { ListasComponent } from '../components/listas.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DetalleComponent } from '../pages/detalle/detalle.component';
     TerminadosComponent,
     AgregarComponent,
     DetalleComponent,
-    TabsPage
+    TabsPage,
+    ListasComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, NavController } from 'ionic-angular';
+import { AlertController, NavController, NavParams } from 'ionic-angular';
 
 import { Lista, ListaItem } from '../../app/clases/index';
 import { ListaDeseosService } from '../../app/services/lista-deseos.service';
@@ -18,10 +18,13 @@ export class AgregarComponent implements OnInit {
   constructor(
     public alertCtrl : AlertController,
     public navCtrl : NavController,
-    public _listaDeseos: ListaDeseosService
+    public _listaDeseos: ListaDeseosService,
+    private _navParams: NavParams
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.nombreLista = this._navParams.get('titulo');
+  }
 
   agregar() {
     if (this.nombreItem.length == 0) {

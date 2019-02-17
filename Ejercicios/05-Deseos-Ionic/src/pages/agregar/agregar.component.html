@@ -6,12 +6,12 @@
 
 <ion-content padding>
   <ion-card>
-    <ion-card-header>
+    <!-- <ion-card-header>
       <ion-item>
         <ion-label floating>Nombre de la lista</ion-label>
         <ion-input type="text" [(ngModel)]="nombreLista" name="nombreLista"></ion-input>
       </ion-item>
-    </ion-card-header>
+    </ion-card-header> -->
 
     <ion-card-content>
       <ion-item>
@@ -33,19 +33,20 @@
     </ion-card-header>
     <ion-card-content>
       <ion-list>
-        <ion-item *ngFor="let item of items; let i = index">
-          <button ion-button color="dark" clear>
-            {{ item.nombre }}
+        <ion-item-sliding *ngFor="let item of items; let i = index">
+          <button ion-item detail-none>
+              <ion-icon item-left *ngIf="!item.completado" ios="ios-square-outline" md="md-square-outline"></ion-icon>
+              <ion-icon item-left *ngIf="item.completado" ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon>
+              <h2 [class.tachado]="item.completado" >{{ item.nombre }}</h2>
           </button>
-          <button (click)="borrarItem(i)"
-            ion-button outline item-right color="danger">
-            <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-            Borrar Item
-          </button>
-        </ion-item>
+          <ion-item-options side="right">
+              <button ion-button icon-only color="danger" (click)="borrarItem(i)">
+                <ion-icon name="close"></ion-icon>
+              </button>
+          </ion-item-options>
+        </ion-item-sliding>
       </ion-list>
     </ion-card-content>
-
   </ion-card>
 
   <button (click)="guardarLista()"

@@ -1,0 +1,20 @@
+<ion-list>
+  <ion-item-sliding #sliding *ngFor="let lista of _listaDeseos.listas | pendientes:terminada; let i = index">
+    <ion-item (click)="verDetalle(lista, i)">
+      <h2>{{ lista.nombre }}</h2>
+      <ion-note item-end>
+        {{ lista.items.length}} items
+      </ion-note>
+    </ion-item>
+    <ion-item-options side="right">
+        <button ion-button icon-only color="danger" (click)="borrarLista(lista)">
+          <ion-icon name="close"></ion-icon>
+        </button>
+    </ion-item-options>
+    <ion-item-options side="left">
+        <button ion-button icon-only color="info" (click)="editarLista(lista, sliding)">
+          <ion-icon name="create"></ion-icon>
+        </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
