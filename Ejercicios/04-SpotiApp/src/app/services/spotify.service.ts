@@ -6,46 +6,35 @@ import 'rxjs/add/operator/map';
 export class SpotifyService {
 
   artists: any[] = [];
-
-  urlBusqueda: string = "https://api.spotify.com/v1/search";
-  urlArtista: string = "https://api.spotify.com/v1/artists";
-  token: string = 'Bearer BQBr9qJPLfdTbTPwKLCl4g7RWiDPjiSlJ1dzOwYrbSLiO5rFbbU0kuV8zMU70MdfaPrYpdvIz2BRXNiLHoEqKQ';
+  token: string = 'Bearer BQAUIMNOslVemiINeLVrOTYcewiR0nlVkHqcXw3L3dzUsDl6Vx8VgwDlGn4f0hYiQyMhRXbx_hfK45yq6vY';
 
   constructor( private _http: Http ) { }
 
-  getArtistas( termino: string ) {
+  getQuery( query: string ){
+    const url = `https://api.spotify.com/v1/${ query }`;
+
     let headers = new Headers();
     headers.append('Authorization', this.token);
 
-    let query = `?q=${termino}&type=artist`;
-    let url = this.urlBusqueda + query;
-    return this._http.get(url, { headers }).map(response => {
+    return this._http.get(url, { headers });
+  }
+
+  getArtistas( termino: string ) {
+    return this.getQuery(`search?q=${termino}&type=artist`).map(response => {
       this.artists = response.json().artists.items;
       return this.artists;
     })
   }
 
   getArtista( id: string ) {
-    let headers = new Headers();
-    headers.append('Authorization', this.token);
-
-    let query = `/${ id }`;
-    let url = this.urlArtista + query;
-    return this._http.get(url, { headers }).map(response => {
-      console.log(response.json());
-       return response.json();
+    return this.getQuery(`artists/${ id }`).map(response => {
+      return response.json();
     })
   }
 
   getTopTracks( id: string ) {
-    let headers = new Headers();
-    headers.append('Authorization', this.token);
-
-    let query = `/${ id }/top-tracks?country=US`;
-    let url = this.urlArtista + query;
-    return this._http.get(url, { headers }).map(response => {
-       console.log(response.json().tracks);
-       return response.json().tracks;
+    return this.getQuery(`artists/${ id }/top-tracks?country=US`).map(response => {
+      return response.json().tracks;
     })
   }
 

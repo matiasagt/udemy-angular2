@@ -1,4 +1,6 @@
-<div class="container main-container animated fadeIn fast" *ngIf="artist">
+
+<app-loading *ngIf="loading"></app-loading>
+<div class="container main-container animated fadeIn fast" *ngIf="artist && !loading">
   <div class="row">
     <div class="col-md-3 text-center">
       <img [src]="artist.images | withoutphoto" class="img-thumbnail img-circle" [alt]="artist.name" width="200" height="200">

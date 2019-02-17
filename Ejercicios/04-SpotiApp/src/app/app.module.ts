@@ -16,6 +16,7 @@ import { ArtistComponent } from './components/artist/artist.component';
 // pipes
 import { WithoutphotoPipe } from './pipes/withoutphoto.pipe';
 import { DomseguroPipe } from './pipes/domseguro.pipe';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { DomseguroPipe } from './pipes/domseguro.pipe';
     NavbarComponent,
     WithoutphotoPipe,
     DomseguroPipe,
-    ArtistComponent
+    ArtistComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

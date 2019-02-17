@@ -8,15 +8,18 @@ import { SpotifyService } from '../../services/spotify.service';
 export class SearchComponent implements OnInit {
 
   termino: string = "";
+  loading: boolean = false;
 
   constructor(private _spotifyService: SpotifyService) { }
 
   ngOnInit() {
-
   }
 
   buscarArtista() {
-    if (this.termino.length) { this._spotifyService.getArtistas( this.termino ).subscribe() }
+    this.loading = this.termino.length > 0;
+    if (this.termino.length) { this._spotifyService.getArtistas( this.termino ).subscribe( () =>
+      this.loading = false
+    )}
   }
 
 }

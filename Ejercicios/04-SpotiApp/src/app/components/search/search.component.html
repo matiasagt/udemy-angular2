@@ -1,3 +1,4 @@
+
 <div class="container top-30">
   <div class="row">
     <div class="col-md-3">
@@ -6,7 +7,10 @@
       <hr>
     </div>
     <div class="col-md-9">
-      <div class="row">
+      <div class="row" *ngIf="loading">       
+        <app-loading style="float: none; margin: 0 auto;" ></app-loading>
+      </div>
+      <div class="row animated fadeIn" *ngIf="!loading">       
         <div class="col-md-3 text-center puntero" [routerLink]="['/artist',artist.id]" *ngFor="let artist of _spotifyService.artists">
           <img [src]="artist.images | withoutphoto" class="img-fluid img-thumbnail">
           <p>{{ artist .name }}</p>
